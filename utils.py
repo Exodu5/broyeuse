@@ -1,12 +1,12 @@
 import streamlit as st
 
 @st.cache_data(show_spinner=False)
-def brutal_analysis(client, model, text, context_type="texte"):
+def brutal_analysis(_client, model, text, context_type="texte"):
     """
     Analyzes the text using the Gemini model and displays the result.
     
     Args:
-        client: The initialized Google GenAI client.
+        _client: The initialized Google GenAI client.
         model: The model name to use.
         text: The text content to analyze.
         context_type: Type of content ("texte" or "transcription vidéo") for the prompt.
@@ -19,12 +19,12 @@ def brutal_analysis(client, model, text, context_type="texte"):
     
     with st.spinner("Extraction de la moelle osseuse..."):
         try:
-            response = client.models.generate_content(
+            response = _client.models.generate_content(
                 model=model,
                 contents=prompt
             )
-            st.subheader("Analyse Brutale :")
-            st.success(response.text)
+            st.subheader("⚙️ RÉSULTAT DU BROYAGE")
+            st.code(response.text, language="markdown")
         except Exception as e:
             error_msg = str(e)
             if "429" in error_msg:

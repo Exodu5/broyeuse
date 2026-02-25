@@ -1,27 +1,20 @@
-# ⚡ Broyeuse
+# ⚙️ Broyeuse
 
-**Broyeuse** n'est pas un résumé de texte poli. C'est une machine de guerre conçue pour broyer le jargon, les pertes de temps et l'indigestion informationnelle.
+Outil d'optimisation de l'information.
+Réduit n'importe quel contenu (Texte, YouTube) à 3 à 5 points d'action.
 
-Vous lui donnez du bruit (texte, rapports, liens YouTube) ; elle vous rend la moelle osseuse. 3 à 5 points d'action. Rien d'autre.
+## Fonctionnalités
 
-## 🚀 Puissance de Frappe
+- **Input** : Texte brut ou URL YouTube.
+- **Output** : 3 lignes d'exécution, 0 jargon.
+- **Engine** : Gemini 2.5 Flash.
 
-- **Broyage de texte :** Copiez-collez n'importe quel pavé administratif ou technique.
-- **Extraction YouTube :** Donnez une URL, récupérez l'essence de la vidéo en 5 secondes.
-- **Moteur Gemini 2.5 Flash :** Optimisé pour la vitesse et la précision chirurgicale.
-- **Interface Brutale :** Pas de fioritures, juste de l'efficacité pure via Streamlit.
+## Setup rapide
 
-## 🛠️ Stack Technique
+1. `pip install -r requirements.txt`
+2. Créer `.env` avec `GOOGLE_API_KEY=votre_cle` & `GEMINI_MODEL="gemini-2.5-flash"`
+3. `streamlit run app.py`
 
-- **Langage :** Python 3
-- **IA :** Google Gemini SDK (v2.0+)
-- **Interface :** Streamlit
-- **Déploiement :** Streamlit Cloud
+## Pourquoi ?
 
-## 🔧 Installation pour les optimisateurs
-
-### Clonez le dépôt
-
-```bash
-   git clone [https://github.com/TON_USER/brutal-optimizer.git](https://github.com/TON_USER/brutal-optimizer.git)
-```
+Parce que TLDR

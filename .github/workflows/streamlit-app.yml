@@ -1,5 +1,5 @@
 # .github/workflows/streamlit-app.yml
-name: Broyeuse
+name: broyeuse
 
 on:
   push:
@@ -20,4 +20,4 @@ jobs:
           python-version: "3.11"
       - uses: streamlit/streamlit-app-action@v0.0.3
         with:
-          app-path: streamlit_app.py
+          app-path: app.py
