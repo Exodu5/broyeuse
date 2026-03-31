@@ -71,9 +71,14 @@ with c2:
 
 @st.cache_data
 def load_transcript(youtube_link):
-    ytb_api = YouTubeTranscriptApi()
-    fetched_transcript = ytb_api.fetch(youtube_link.split("v=")[-1], languages=['fr', 'en'])
-    return " ".join([entry.text for entry in fetched_transcript])
+    try:
+        video_id = youtube_link.split("v=")[-1]
+        ytb_api = YouTubeTranscriptApi()
+        fetched_transcript = ytb_api.fetch(video_id, languages=['fr', 'en'])
+        return " ".join([entry.text for entry in fetched_transcript])
+    except Exception as e:
+        st.error(f"Impossible de récupérer la transcription : {str(e)}")
+        return None
 
 if st.button("Optimiser maintenant"):
 
@@ -83,6 +88,7 @@ if st.button("Optimiser maintenant"):
         with st.spinner("Broyage de la vidéo..."):
             full_text = load_transcript(youtube_link)
         
-        brutal_analysis(client, model, full_text, context_type="transcription vidéo")
+        if full_text:
+            brutal_analysis(client, model, full_text, context_type="transcription vidéo")
     else:
         st.warning("Donne-moi de la matière à broyer.")
